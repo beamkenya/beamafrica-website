@@ -1,0 +1,45 @@
+---
+const features = [
+  {
+    icon: 'fas fa-users',
+    title: 'Community Building',
+    description: 'We connect developers, companies, and enthusiasts to create a vibrant ecosystem around BEAM technologies in Africa.'
+  },
+  {
+    icon: 'fas fa-graduation-cap',
+    title: 'Knowledge Sharing',
+    description: 'Through events and discussions, we share expertise and best practices to elevate the skills of our community members.'
+  },
+  {
+    icon: 'fas fa-code-branch',
+    title: 'Open Source',
+    description: 'We contribute to and maintain open source projects that solve local problems using BEAM technologies.'
+  }
+];
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">
+        About <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">BeamAfrica</span>
+      </h2>
+      <div class="h-1 w-24 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+      <p class="max-w-2xl mx-auto text-gray-700">
+        We're a community dedicated to advancing the BEAM ecosystem (Erlang, Elixir, LFE) in Africa through education, collaboration, and networking.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map(feature => (
+        <div class="bg-light rounded-xl p-6 card-hover">
+          <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-full w-[60px] h-[60px] flex items-center justify-center text-2xl mb-4">
+            <i class={feature.icon}></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+---
+
+<button 
+  id="backToTop" 
+  class="fixed bottom-6 right-6 bg-gradient-to-r from-primary to-secondary text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300"
+  aria-label="Back to top"
+>
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Back to top button functionality
+  const backToTopButton = document.getElementById('backToTop');
+  
+  if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0');
+        backToTopButton.classList.add('opacity-100');
+      } else {
+        backToTopButton.classList.remove('opacity-100');
+        backToTopButton.classList.add('opacity-0');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+</script>

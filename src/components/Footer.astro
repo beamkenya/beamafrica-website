@@ -1,0 +1,99 @@
+---
+import BackToTop from './BackToTop.astro';
+
+const quickLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Events", href: "#events" },
+  { name: "Jobs", href: "#jobs" },
+  { name: "Open Source", href: "#opensource" }
+];
+
+const eventLinks = [
+  { name: "Weekly Meetings", href: "#" },
+  { name: "Monthly Webinars", href: "#" },
+  { name: "Annual Conference", href: "#" },
+  { name: "Workshops", href: "#" }
+];
+
+const socialLinks = [
+  { icon: "fab fa-twitter", href: "#" },
+  { icon: "fab fa-linkedin", href: "#" },
+  { icon: "fab fa-github", href: "#" },
+  { icon: "fab fa-slack", href: "#" }
+];
+---
+
+<footer class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span class="font-bold text-xl text-primary">B</span>
+          </div>
+          <h3 class="text-2xl font-bold ml-3">Beam<span>Africa</span></h3>
+        </div>
+        <p class="text-gray-200">
+          Building Africa's BEAM & Elixir community through education, collaboration, and innovation.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          {quickLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-gray-200 hover:text-white">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Events</h4>
+        <ul class="space-y-2">
+          {eventLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-gray-200 hover:text-white">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+        <p class="text-gray-200 mb-4">
+          Subscribe to get updates on events, job opportunities, and community news.
+        </p>
+        <form class="flex">
+          <input 
+            type="email" 
+            placeholder="Your email" 
+            class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800"
+          />
+          <button class="bg-accent hover:bg-elixir px-4 rounded-r-lg">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-400/30 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-300">© 2023 BeamAfrica. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        {socialLinks.map(link => (
+          <a href={link.href} class="text-gray-300 hover:text-white">
+            <i class={link.icon}></i>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <BackToTop />
+</footer>

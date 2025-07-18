@@ -1,0 +1,138 @@
+---
+const contactInfo = [
+  {
+    icon: "fas fa-envelope",
+    title: "Email",
+    content: ["hello@beamAfrica.org", "jobs@beamAfrica.org"]
+  },
+  {
+    icon: "fab fa-slack",
+    title: "Community Slack",
+    content: ["Join 500+ members in our Slack community"],
+    link: {
+      text: "Join Now →",
+      url: "#"
+    }
+  },
+  {
+    icon: "fab fa-twitter",
+    title: "Social Media",
+    socialLinks: [
+      { icon: "fab fa-twitter", url: "#" },
+      { icon: "fab fa-linkedin", url: "#" },
+      { icon: "fab fa-github", url: "#" },
+      { icon: "fab fa-meetup", url: "#" }
+    ]
+  }
+];
+
+const subjectOptions = [
+  "General Inquiry",
+  "Job Posting",
+  "Event Speaking",
+  "Partnership",
+  "Open Source Contribution"
+];
+---
+
+<section id="contact" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">
+        Get in <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Touch</span>
+      </h2>
+      <div class="h-1 w-24 bg-gradient-to-r from-accent to-elixir mx-auto mb-6"></div>
+      <p class="max-w-2xl mx-auto text-gray-700">
+        Have questions? Want to partner with us? Interested in speaking at an event? Reach out!
+      </p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-bold mb-6 text-primary">Contact Information</h3>
+          
+          <div class="space-y-6">
+            {contactInfo.map(info => (
+              <div class="flex items-start">
+                <div class={`w-10 h-10 ${
+                  info.title === "Email" ? "bg-primary" :
+                  info.title === "Community Slack" ? "bg-secondary" : "bg-accent"
+                } rounded-full flex items-center justify-center text-white mr-4`}>
+                  <i class={info.icon}></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">{info.title}</h4>
+                  {info.content?.map(text => (
+                    <p>{text}</p>
+                  ))}
+                  {info.link && (
+                    <a href={info.link.url} class="text-primary font-medium hover:underline">
+                      {info.link.text}
+                    </a>
+                  )}
+                  {info.socialLinks && (
+                    <div class="flex space-x-4 mt-2">
+                      {info.socialLinks.map(social => (
+                        <a href={social.url} class="text-gray-600 hover:text-primary">
+                          <i class={`${social.icon} fa-lg`}></i>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-6 text-primary">Send Us a Message</h3>
+          <form class="space-y-4">
+            <div>
+              <label class="block text-gray-700 mb-2">Name</label>
+              <input 
+                type="text" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            
+            <div>
+              <label class="block text-gray-700 mb-2">Email</label>
+              <input 
+                type="email" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            
+            <div>
+              <label class="block text-gray-700 mb-2">Subject</label>
+              <select 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                {subjectOptions.map(option => (
+                  <option>{option}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-gray-700 mb-2">Message</label>
+              <textarea 
+                rows="4" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

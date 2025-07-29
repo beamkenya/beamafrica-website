@@ -1,20 +1,19 @@
 ---
-const projects = [
-  {
-    icon: "fab fa-github",
-    title: "Africa Payment Gateway",
-    description: "An Elixir library for integrating with local payment providers (M-Pesa, Airtel Money, Equitel).",
-    tags: ["Elixir", "Fintech", "API"],
-    bgColor: "bg-primary"
-  },
-  {
-    icon: "fab fa-github",
-    title: "Nairobi Bus API",
-    description: "Real-time bus tracking and route planning API for Nairobi's public transport system.",
-    tags: ["Phoenix", "GTFS", "WebSockets"],
-    bgColor: "bg-secondary"
-  }
-];
+
+import { getPinnedRepos } from '../api/pinnedGithubRepos';
+
+interface Project {
+  name: string;
+  description: string;
+  url: string;
+}
+
+let projects: Project[] = [];
+try {
+  projects = await getPinnedRepos();
+} catch (error) {
+  console.error('Failed to fetch pinned repositories:', error);
+}
 ---
 
 <section id="opensource" class="py-20 bg-light">
@@ -33,18 +32,13 @@ const projects = [
       {projects.map(project => (
         <div class="bg-white rounded-xl p-6 shadow-md card-hover">
           <div class="flex items-center mb-4">
-            <div class={`w-10 h-10 ${project.bgColor} rounded-full flex items-center justify-center text-white`}>
-              <i class={project.icon}></i>
+            <div class={`w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white`}>
+              <i class="fab fa-github"></i>
             </div>
-            <h3 class="text-xl font-bold ml-3">{project.title}</h3>
+            <h3 class="text-xl font-bold ml-3">{project.name}</h3>
           </div>
           <p class="mb-4">{project.description}</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            {project.tags.map(tag => (
-              <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded">{tag}</span>
-            ))}
-          </div>
-          <a href="#" class="text-primary font-medium hover:underline">View on GitHub →</a>
+          <a href={project.url} class="text-primary font-medium hover:underline" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
         </div>
       ))}
     </div>

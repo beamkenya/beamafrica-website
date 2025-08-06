@@ -1,0 +1,27 @@
+[
+  {
+    "name": "ex_pesa",
+    "url": "https://github.com/beamkenya/ex_pesa",
+    "description": "Payment Library For Most Public Payment API's in Kenya and hopefully Africa. Let us get this moneybag"
+  },
+  {
+    "name": "africastalking-elixir",
+    "url": "https://github.com/beamkenya/africastalking-elixir",
+    "description": "An API Wrapper for the Africas Talking APl"
+  },
+  {
+    "name": "ex_ussd",
+    "url": "https://github.com/beamkenya/ex_ussd",
+    "description": "ExUssd lets you create a simple, flexible, and customizable USSD interface."
+  },
+  {
+    "name": "ex_mpesa",
+    "url": "https://github.com/beamkenya/ex_mpesa",
+    "description": "Daraja API(Mpesa) Payment Library for Elixir"
+  },
+  {
+    "name": "ex_jenga",
+    "url": "https://github.com/beamkenya/ex_jenga",
+    "description": "Jenga (Equity Bank) API Payment library for Elixir"
+  }
+]
